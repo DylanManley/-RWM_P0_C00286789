@@ -1,5 +1,7 @@
+
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<p>Visit <a href="/combined" style = "font-weight: bold; text-decoration: underline;">Combined</a></p>
+
 
 <script lang="ts">
 import { cubes } from '$lib/filters';
