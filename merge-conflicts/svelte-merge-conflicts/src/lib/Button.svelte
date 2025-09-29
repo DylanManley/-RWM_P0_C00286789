@@ -1,8 +1,17 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
   export let label: string = 'Click me';
+  export let disabled: boolean = false;
+
+  const dispatch = createEventDispatcher<{ pressed: { at: number } }>();
+
+  function handleClick() {
+    if (disabled) return;
+    dispatch('pressed', { at: Date.now() });
+  }
 </script>
 
-<button class="btn" on:click={() => console.log('clicked')}>
+<button class="btn" {disabled} on:click={handleClick}>
   {label}
 </button>
 
@@ -12,5 +21,9 @@
     background: #eeeeee;
     color: #222222;
     border-radius: 0.375rem;
+    opacity: var(--opacity, 1);
   }
+  .btn:disabled { --opacity: 0.6; cursor: not-allowed; }
 </style>
+git commit -am "Branch B: add disabled prop and 'pressed' custom event"
+
